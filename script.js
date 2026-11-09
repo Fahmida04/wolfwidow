@@ -22,3 +22,9 @@
 (function(){var b=document.getElementById('discord-card');if(!b)return;var l=document.getElementById('discord-label');
 b.addEventListener('click',function(){var done=function(){l.textContent='Copied: wolfwidow';setTimeout(function(){l.textContent='@wolfwidow · tap to copy';},2000);};
 if(navigator.clipboard){navigator.clipboard.writeText('wolfwidow').then(done,done);}else{done();}});})();
+
+// Certificate lightbox
+(function(){var d=document.getElementById('lightbox');if(!d||!d.showModal)return;var img=d.querySelector('img'),cap=d.querySelector('.lb-cap');
+document.querySelectorAll('.cert').forEach(function(b){b.addEventListener('click',function(){img.src=b.dataset.full;img.alt=b.querySelector('img').alt;cap.textContent=b.dataset.caption;d.showModal();});});
+d.querySelector('.lb-close').addEventListener('click',function(){d.close();});
+d.addEventListener('click',function(e){if(e.target===d)d.close();});})();
